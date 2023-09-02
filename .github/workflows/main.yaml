@@ -1,9 +1,9 @@
-name: Upload Website
+name: Upload Resume Webpage
 
 on:
   push:
     branches:
-    - master
+    - main
 
 jobs:
   deploy:
