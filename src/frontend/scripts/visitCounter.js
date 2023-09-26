@@ -13,6 +13,7 @@ const updateCounter = async (event) => {
   });
   const visitors = await response.json();
   p.textContent = `This page has been visited ${visitors} times`;
+//   p.textContent = `This page has been visited ${visitors.visit_count} times`;
 };
 // The py response is the problem here. I need to update my code to give a better response in a json format
 window.addEventListener("DOMContentLoaded", updateCounter);
