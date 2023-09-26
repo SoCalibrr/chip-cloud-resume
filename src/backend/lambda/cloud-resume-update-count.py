@@ -18,4 +18,4 @@ def lambda_handler(event, context):
             'visit_count': visit_count
     })
 
-    return "Records added successfully!"
+    return visit_count
