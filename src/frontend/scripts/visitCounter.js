@@ -12,7 +12,7 @@ const updateCounter = async (event) => {
     },
   });
   const visitors = await response.json();
-  p.textContent = `This page has been visited ${visitors.visits} times`;
+  p.textContent = `This page has been visited ${visitors.visit_count} times`;
 };
 
 window.addEventListener("DOMContentLoaded", updateCounter);
