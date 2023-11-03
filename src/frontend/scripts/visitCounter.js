@@ -9,7 +9,6 @@ const updateCounter = async (event) => {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      "Access-Control-Allow-Origin": "*",
     },
   });
   const visitors = await response.json();
