@@ -11,15 +11,4 @@ def lambda_handler(event, context):
        'record_id':'0'
     })
 
-   data = {'visit_count': visit_count}
-
-   response = {
-        "statusCode": 200,
-        "body": json.dumps(data),
-        "headers": {
-            "Content-Type": "application/json",
-            "Access-Control-Allow-Headers": "Content-Type, Origin",
-            "Access-Control-Allow-Methods": "OPTIONS,POST,GET",
-        },
-    }
     return int(response['Item']['visit_count'])
