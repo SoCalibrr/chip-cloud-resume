@@ -14,6 +14,7 @@ resource "aws_s3_bucket_server_side_encryption_configuration" "cloud-resume-sse"
     apply_server_side_encryption_by_default {
       sse_algorithm = "AES256"
     }
+    bucket_key_enabled = true
   }
 }
 
@@ -22,19 +23,6 @@ resource "aws_s3_bucket_website_configuration" "cloud-resume-web-conf" {
 
   index_document {
     suffix = "index.html"
-  }
-
-  error_document {
-    key = "error.html"
-  }
-
-  routing_rule {
-    condition {
-      key_prefix_equals = "docs/"
-    }
-    redirect {
-      replace_key_prefix_with = "documents/"
-    }
   }
 }
 
@@ -56,7 +44,7 @@ resource "aws_s3_bucket_public_access_block" "cloud-resume-bucket-public-access"
 
 resource "aws_s3_bucket_policy" "cloud-resume-public-read" {
   bucket = aws_s3_bucket.cloud-resume-bucket.id
-  policy = data.aws_iam_policy_document.allow_access_from_another_account.json
+  policy = data.aws_iam_policy_document.cloud-resume-public-read-policy.json
 }
 
 data "aws_iam_policy_document" "cloud-resume-public-read-policy" {
