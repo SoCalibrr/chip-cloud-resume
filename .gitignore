@@ -1,1 +1,22 @@
 .DS_STORE
+.terraform/*
+
+# vsc workspace settings
+.vscode
+
+# node_modules
+node_modules/
+
+# terraform providers / provisioners installation directory
+.terraform
+
+# terraform state files
+**/*.tfstate
+
+# terraform s3 backend configuration
+!.terraform.lock.hcl
+tofu/**/backend.tf
+tofu/**/provider.tf
+
+# terraform lambda artifacts directory
+builds
