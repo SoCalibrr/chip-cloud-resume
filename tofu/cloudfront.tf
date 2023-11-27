@@ -49,7 +49,7 @@ resource "aws_cloudfront_distribution" "distribution" {
     cloudfront_default_certificate = false
     minimum_protocol_version       = "TLSv1.2_2021"
     ssl_support_method             = "sni-only"
-    acm_certificate_arn            = "arn:aws:acm:us-east-1:488467487192:certificate/f2f5973e-e57c-4aaf-891f-190d69f7bef1"
+    acm_certificate_arn            = aws_acm_certificate.cert.arn
   }
 }
 
