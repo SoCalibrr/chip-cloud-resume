@@ -12,10 +12,10 @@ table = dynamodb.Table('chip-cloud-resume-counter')
 
 def lambda_handler(event, context):
     '''PUT the updated visit_count in DynamoDB'''
-    response = table.get_item(Key={
+    get_visitors = table.get_item(Key={
             'record_id':'0'
     })
-    visit_count = int(response['Item']['visit_count'])
+    visit_count = int(get_visitors['Item']['visit_count'])
     visit_count += 1
     print(f"Please welcome our {visit_count} visitor!")
     table.put_item(Item={

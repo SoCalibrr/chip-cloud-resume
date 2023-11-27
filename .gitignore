@@ -24,3 +24,6 @@ tofu/**/provider.tf
 
 # terraform lambda artifacts directory
 builds
+
+# zip files
+**/*.zip
