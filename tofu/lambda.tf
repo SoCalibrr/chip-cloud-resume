@@ -29,7 +29,7 @@ resource "aws_lambda_function" "test_lambda" {
   filename         = "lambda_function_payload.zip"
   function_name    = "cloud-resume-update-count"
   role             = aws_iam_role.iam_for_lambda.arn
-  handler          = "lambda_function.lambda_handler"
+  handler          = "cloud-resume-update-count.lambda_handler"
   source_code_hash = data.archive_file.lambda.output_base64sha256
   runtime          = "python3.11"
 }
@@ -93,9 +93,3 @@ resource "aws_iam_role_policy_attachment" "test-attach-1" {
   role       = aws_iam_role.iam_for_lambda.name
   policy_arn = aws_iam_policy.policy-1.arn
 }
-
-
-# tofu import aws_iam_role.iam_for_lambda cloud-resume-lambda-role
-# tofu import aws_lambda_function.test_lambda cloud-resume-update-count
-# tofu import aws_iam_policy.policy-0 cloud-resume-lambda-role:
-# tofu import aws_iam_policy.policy-1 cloud-resume-lambda-role:
